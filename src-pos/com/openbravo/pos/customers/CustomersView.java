@@ -428,7 +428,8 @@ public class CustomersView extends javax.swing.JPanel implements EditorRecord {
 
         jLabel5.setText(AppLocal.getIntString("label.card")); // NOI18N
 
-        jcard.setEditable(false);
+        // HACK: Allow editing of the card ID manually.
+		//jcard.setEditable(false);
 
         jLabel9.setText(AppLocal.getIntString("label.custtaxcategory")); // NOI18N
 

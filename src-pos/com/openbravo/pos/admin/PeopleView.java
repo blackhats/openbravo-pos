@@ -209,7 +209,8 @@ public class PeopleView extends JPanel implements EditorRecord {
 
         jLabel2.setText(AppLocal.getIntString("label.role")); // NOI18N
 
-        jcard.setEditable(false);
+        // HACK: Allow editing of the card ID manually.
+		//jcard.setEditable(false);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/openbravo/images/color_line16.png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
