@@ -32,7 +32,7 @@
     <property name="javac.deprecation" value="off"/>
     <property name="javac.optimize" value="on"/>
     <property name="javac.debug" value="off"/>
-    <property name="javac.minVMVersion" value="1.6"/>
+    <property name="javac.minVMVersion" value="1.7"/>
     <!-- read in property files -->
     <property file="build.properties" />
     <property name="src.pos" value="${basedir}/src-pos"/>
