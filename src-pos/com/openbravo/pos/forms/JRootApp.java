@@ -87,7 +87,7 @@ public class JRootApp extends JPanel implements AppView {
 
         m_aBeanFactories = new HashMap<String, BeanFactory>();
         
-        // Inicializo los componentes visuales
+		// Initialise the visual components
         initComponents ();            
         jScrollPane1.getVerticalScrollBar().setPreferredSize(new Dimension(35, 35));   
     }
@@ -155,27 +155,28 @@ public class JRootApp extends JPanel implements AppView {
             }   
         }
         
-        // Cargamos las propiedades de base de datos
+		// Setup properties database
+		
         m_propsdb = m_dlSystem.getResourceAsProperties(m_props.getHost() + "/properties");
         
-        // creamos la caja activa si esta no existe      
+		// Create the cashbox database if it does not exist
         try {
             String sActiveCashIndex = m_propsdb.getProperty("activecash");
             Object[] valcash = sActiveCashIndex == null
                     ? null
                     : m_dlSystem.findActiveCash(sActiveCashIndex);
             if (valcash == null || !m_props.getHost().equals(valcash[0])) {
-                // no la encuentro o no es de mi host por tanto creo una...
+				// cannot find my host or not my host, therefore create one
                 setActiveCash(UUID.randomUUID().toString(), m_dlSystem.getSequenceCash(m_props.getHost()) + 1, new Date(), null);
 
-                // creamos la caja activa      
+                // create active box
                 m_dlSystem.execInsertCash(
                         new Object[] {getActiveCashIndex(), m_props.getHost(), getActiveCashSequence(), getActiveCashDateStart(), getActiveCashDateEnd()});                  
             } else {
                 setActiveCash(sActiveCashIndex, (Integer) valcash[1], (Date) valcash[2], (Date) valcash[3]);
             }
         } catch (BasicException e) {
-            // Casco. Sin caja no hay pos
+            // Error, cannot close cash
             MessageInf msg = new MessageInf(MessageInf.SGN_NOTICE, AppLocal.getIntString("message.cannotclosecash"), e);
             msg.show(this);
             session.close();
@@ -190,20 +191,20 @@ public class JRootApp extends JPanel implements AppView {
             m_dlSystem.setResourceAsProperties(m_props.getHost() + "/properties", m_propsdb);
         }
         
-        // Inicializo la impresora...
+        // Initialise the printer
         m_TP = new DeviceTicket(this, m_props);
         
         // Inicializamos 
         m_TTP = new TicketParser(getDeviceTicket(), m_dlSystem);
         printerStart();
         
-        // Inicializamos la bascula
+        // Initialise the scales
         m_Scale = new DeviceScale(this, m_props);
         
-        // Inicializamos la scanpal
+        // Initialise the scanner
         m_Scanner = DeviceScannerFactory.createInstance(m_props);
             
-        // Leemos los recursos basicos
+        // Read basic resources (images)
         BufferedImage imgicon = m_dlSystem.getResourceAsImage("Window.Logo");
         m_jLblTitle.setIcon(imgicon == null ? null : new ImageIcon(imgicon));
         m_jLblTitle.setText(m_dlSystem.getResourceAsText("Window.Title"));  
@@ -212,7 +213,7 @@ public class JRootApp extends JPanel implements AppView {
         try {
             sWareHouse = m_dlSystem.findLocationName(m_sInventoryLocation);
         } catch (BasicException e) {
-            sWareHouse = null; // no he encontrado el almacen principal
+            sWareHouse = null; // Haven't found the main warehouse
         }        
         
         // Show Hostname, Warehouse and URL in taskbar
@@ -253,7 +254,7 @@ public class JRootApp extends JPanel implements AppView {
         }
     }
     
-    // Interfaz de aplicacion
+    // Interface of application
     public DeviceTicket getDeviceTicket(){
         return m_TP;
     }
