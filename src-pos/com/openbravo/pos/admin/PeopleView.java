@@ -58,6 +58,7 @@ public class PeopleView extends JPanel implements EditorRecord {
         m_jName.getDocument().addDocumentListener(dirty);
         m_jRole.addActionListener(dirty);
         m_jVisible.addActionListener(dirty);
+		jcard.getDocument().addDocumentListener(dirty);
         m_jImage.addPropertyChangeListener("image", dirty);
 
         

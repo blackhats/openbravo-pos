@@ -65,6 +65,7 @@ public class CustomersView extends javax.swing.JPanel implements EditorRecord {
         m_jNotes.getDocument().addDocumentListener(dirty);
         txtMaxdebt.getDocument().addDocumentListener(dirty);
         m_jVisible.addActionListener(dirty);
+		jcard.getDocument().addDocumentListener(dirty);
         
         txtFirstName.getDocument().addDocumentListener(dirty);
         txtLastName.getDocument().addDocumentListener(dirty);
