@@ -6,7 +6,7 @@ Openbravo POS is a point of sale application designed for touch screens, support
 
 This is a fork used by #blackhats.  It has some features:
 
-* The cards for customers and users may be editable through the standard user interface.  There is an issue with this saving properly unless you first autogenerate a code then overwrite it.
+* The cards for customers and users may be editable through the standard user interface.
 * Fixed building on JDK 7.
 * Some other stuff that we'll look at adding later.
 
