@@ -207,7 +207,9 @@ public class JRootApp extends JPanel implements AppView {
         // Read basic resources (images)
         BufferedImage imgicon = m_dlSystem.getResourceAsImage("Window.Logo");
         m_jLblTitle.setIcon(imgicon == null ? null : new ImageIcon(imgicon));
-        m_jLblTitle.setText(m_dlSystem.getResourceAsText("Window.Title"));  
+        m_jLblTitle.setText(m_dlSystem.getResourceAsText("Window.Title"));
+		
+		jLabel1.setText(m_dlSystem.getResourceAsText("Window.WelcomeMessage"));
         
         String sWareHouse;
         try {
@@ -618,16 +620,7 @@ public class JRootApp extends JPanel implements AppView {
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/openbravo/images/logo.png"))); // NOI18N
-        jLabel1.setText("<html><center>Openbravo POS is a point of sale application designed for touch screens.<br>" +
-            "Copyright \u00A9 2007-2009 Openbravo, S.L.<br>" +
-            "http://www.openbravo.com/product/pos<br>" +
-            "<br>" +
-            "Openbravo POS is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.<br>" +
-            "<br>" +
-            "Openbravo POS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.<br>" +
-            "<br>" +
-            "You should have received a copy of the GNU General Public License along with Openbravo POS.  If not, see http://www.gnu.org/licenses/.<br>" +
-            "</center>");
+        jLabel1.setText("Window.WelcomeMessage");
         jLabel1.setAlignmentX(0.5F);
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel1.setMaximumSize(new java.awt.Dimension(800, 1024));

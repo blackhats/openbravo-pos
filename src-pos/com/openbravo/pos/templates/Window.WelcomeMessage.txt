@@ -1,0 +1,5 @@
+<html>
+<body>
+<center>Welcome to OpenBravo POS!</center>
+</body>
+</html>
